@@ -5,13 +5,20 @@
   "main": "index.js",
   "scripts": {
     "precommit": "lint-staged",
+    "format": "npm run format:prettier",
+    "format:prettier": "prettier --config .prettierrc \"**/*.{ts,css,less,scss,js}\" --write",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
   },
+  "husky": {
+    "hooks": {
+        "pre-commit": "lint-staged"
+    }
+  },
   "lint-staged": {
-    "*.js": [
-      "./node_modules/prettier/bin/prettier.js --tab-width 4 --write",
-      "git add"
+    "*.{ts,css,less,scss,js}": [
+        "prettier --config .prettierrc --write",
+        "git add"
     ]
   },
   "author": "Rajath",
