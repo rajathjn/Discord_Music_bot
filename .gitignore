@@ -1,3 +1,6 @@
+# JS will create the below
+node_modules
 package-lock.json
-./node_modules
+
+# Files stores token
 .env
