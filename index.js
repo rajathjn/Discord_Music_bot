@@ -22,7 +22,7 @@ const client = new Client({
 const commands = [];
 client.commands = new Collection();
 
-const commandsPath = path.join(__dirname, 'commands'); // E:\yt\discord bot\js\intro\commands
+const commandsPath = path.join(__dirname, 'commands');
 const commandFiles = fs
   .readdirSync(commandsPath)
   .filter((file) => file.endsWith('.js'));
@@ -70,10 +70,11 @@ client.on('interactionCreate', async (interaction) => {
     await command.execute({ client, interaction });
   } catch (error) {
     console.debug(error);
-    // await interaction.reply({content: "There was an error executing this command", ephemeral: true });
   }
 });
 
-client.on('messageCreate', (message) => {});
+client.on('messageCreate', (message) => {
+	console.log(message.content);
+});
 
 client.login(process.env.TOKEN);
