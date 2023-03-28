@@ -12,3 +12,7 @@ To start the Music bot run
 ```
 npm start .
 ```
+# For Docker
+```
+docker build -t music_bot/forstmourne_tunes:latest .
+```

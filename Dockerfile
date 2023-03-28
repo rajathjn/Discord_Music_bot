@@ -15,4 +15,4 @@ RUN apk add --update --no-cache nodejs npm ffmpeg \
     npm install
 COPY . .
 
-CMD [ "node", "index.js" ]
+CMD [ "npm", "start" ]
