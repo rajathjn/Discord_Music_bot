@@ -16,12 +16,7 @@ module.exports = {
     }
 
     // Get the first 10 songs in the queue
-    const queueString = queue.tracks
-      .slice(0, 10)
-      .map((song, i) => {
-        return `${i}) [${song.duration}]\` ${song.title} - <@${song.requestedBy.id}>`;
-      })
-      .join('\n');
+    const queueString = queue.tracks.toArray().slice(0, 10).join('\n');
 
     // Get the current song
     const currentSong = queue.currentTrack;
@@ -32,7 +27,7 @@ module.exports = {
           .setDescription(
             `**Currently Playing**\n` +
               (currentSong
-                ? `\`[${currentSong.duration}]\` ${currentSong.title} - <@${currentSong.requestedBy.id}>`
+                ? `${currentSong.title}`
                 : 'None') +
               `\n\n**Queue**\n${queueString}`,
           )

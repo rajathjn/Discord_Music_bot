@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const { EmbedBuilder } = require('discord.js');
+const { AttachmentBuilder,EmbedBuilder } = require('discord.js');
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -16,18 +16,20 @@ module.exports = {
       return;
     }
 
-    const currentSong = queue.currentTrack;
-
     // Skip the current song
-    queue.skip();
+    queue.node.skip();
 
     // Return an embed to the user saying the song has been skipped
+    let filename = Math.floor(Math.random() * 10);
     await interaction.reply({
       embeds: [
         new EmbedBuilder()
-          .setDescription(`${currentSong.title} has been skipped!`)
-          .setThumbnail(currentSong.thumbnail),
+          .setDescription("Song has been skipped!")
+          .setThumbnail(`attachment://${filename}.png`),
       ],
+      files: [
+        new AttachmentBuilder(`./images/${filename}.png`)
+      ]
     });
   },
 };
