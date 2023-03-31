@@ -12,13 +12,13 @@
   },
   "husky": {
     "hooks": {
-        "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {
     "*.{ts,css,less,scss,js}": [
-        "prettier --config .prettierrc --write",
-        "git add"
+      "prettier --config .prettierrc --write",
+      "git add"
     ]
   },
   "author": "Rajath",
@@ -35,6 +35,7 @@
     "husky": "^8.0.3",
     "lint-staged": "^13.2.0",
     "prettier": "^2.8.6",
-    "spotify-web-api-node": "^5.0.2"
+    "spotify-web-api-node": "^5.0.2",
+    "ytdl-core": "^4.11.3"
   }
 }
