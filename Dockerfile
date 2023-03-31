@@ -6,6 +6,7 @@ COPY package*.json ./
 
 RUN apk add --update --no-cache nodejs npm ffmpeg \
     make \
+    bash \
     g++ \
     jpeg-dev \
     cairo-dev \
@@ -15,4 +16,6 @@ RUN apk add --update --no-cache nodejs npm ffmpeg \
     npm install
 COPY . .
 
-CMD [ "npm", "start" ]
+RUN chmod +x /usr/src/app/deploy.sh
+
+CMD ["bash", "deploy.sh"]
