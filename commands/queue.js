@@ -26,9 +26,7 @@ module.exports = {
         new EmbedBuilder()
           .setDescription(
             `**Currently Playing**\n` +
-              (currentSong
-                ? `${currentSong.title}`
-                : 'None') +
+              (currentSong ? `${currentSong.title}` : 'None') +
               `\n\n**Queue**\n${queueString}`,
           )
           .setThumbnail(currentSong.setThumbnail),

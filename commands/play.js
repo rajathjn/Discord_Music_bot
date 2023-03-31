@@ -5,7 +5,9 @@ const { QueryType } = require('discord-player');
 module.exports = {
   data: new SlashCommandBuilder()
     .setName('play')
-    .setDescription('play a song. Use /play search <search terms> or /play song <song url>')
+    .setDescription(
+      'play a song. Use /play search <search terms> or /play song <song url>',
+    )
 
     .addSubcommand((subcommand) =>
       subcommand
@@ -49,11 +51,11 @@ module.exports = {
     let filename = Math.floor(Math.random() * 10);
     let file = new AttachmentBuilder(`./images/${filename}.png`);
     let Embed = new EmbedBuilder()
-      .setColor(0x0099FF)
+      .setColor(0x0099ff)
       .setTitle('Forstmourne Tunes')
       .setURL('https://wowpedia.fandom.com/wiki/Arthas_Menethil')
       .setDescription('Playing Song')
-      .setThumbnail(`attachment://${filename}.png`)
+      .setThumbnail(`attachment://${filename}.png`);
 
     if (interaction.options.getSubcommand() === 'search') {
       // Search for the song using the discord-player
@@ -69,7 +71,7 @@ module.exports = {
       // Add the track to the queue
       const song = result.tracks[0];
       await queue.addTrack(song);
-      await interaction.reply({embeds: [Embed], files: [file]})
+      await interaction.reply({ embeds: [Embed], files: [file] });
     }
 
     if (interaction.options.getSubcommand() === 'song') {
@@ -86,7 +88,7 @@ module.exports = {
       // Add each track to the queue
       const song = result.tracks;
       await queue.addTrack(song);
-      await interaction.reply({embeds: [Embed], files: [file]})
+      await interaction.reply({ embeds: [Embed], files: [file] });
     }
 
     // Play the song

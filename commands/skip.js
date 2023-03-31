@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const { AttachmentBuilder,EmbedBuilder } = require('discord.js');
+const { AttachmentBuilder, EmbedBuilder } = require('discord.js');
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -24,12 +24,10 @@ module.exports = {
     await interaction.reply({
       embeds: [
         new EmbedBuilder()
-          .setDescription("Song has been skipped!")
+          .setDescription('Song has been skipped!')
           .setThumbnail(`attachment://${filename}.png`),
       ],
-      files: [
-        new AttachmentBuilder(`./images/${filename}.png`)
-      ]
+      files: [new AttachmentBuilder(`./images/${filename}.png`)],
     });
   },
 };
