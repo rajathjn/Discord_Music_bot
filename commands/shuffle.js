@@ -16,7 +16,7 @@ module.exports = {
         }
 
         // shuffle the queue list
-        queue.tracks.shuffle();
+        queue.shuffle();
 
         // Get the first 10 songs in the queue
         const queueString = queue.tracks.toArray().slice(0, 10).join('\n');
